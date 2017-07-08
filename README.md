@@ -20,7 +20,7 @@ class Foo
 
     function bar()
     {
-        $this->getLogger()->alert('Something bad happened in bar!);
+        $this->log()->error('Something bad happened in bar!);
     }
 }
 
@@ -34,3 +34,5 @@ $foo->bar(); // There is a log record in $anyPsr3LoggerHere now.
 $foo->setEchoLogger();
 $foo->bar(); // 'ALERT: Something bad happened in bar' is echo'ed to a screen.
 ```
+
+You can also use `Arrilot\Logs\EchoLogger` as a separate PSR-3 logger without a trait.
