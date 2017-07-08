@@ -20,19 +20,25 @@ class Foo
 
     function bar()
     {
-        $this->log()->error('Something bad happened in bar!);
+        $this->log()->error('Error happened in bar!);
+        $this->log()->warning('Warning happened in bar!);
+        // etc
     }
 }
 
 
 $foo = new Foo();
-$foo->bar(); // Everything is ok, but nothing was logged.
+$foo->bar(); // Everything is ok, but nothing was logged anywhere because no logger was set.
 
 $foo->setLogger($anyPsr3LoggerHere);
 $foo->bar(); // There is a log record in $anyPsr3LoggerHere now.
 
 $foo->setEchoLogger();
 $foo->bar(); // 'ALERT: Something bad happened in bar' is echo'ed to a screen.
+
+// If you are using Monolog\Registry to store loggers, you can simply pass a logger name and the package will grab a logger from the Registry.
+$foo->setLogger('application_log');
+$foo->bar(); // There is a record in application log.
 ```
 
 You can also use `Arrilot\Logs\EchoLogger` as a separate PSR-3 logger without a trait.
