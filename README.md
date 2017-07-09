@@ -20,8 +20,8 @@ class Foo
 
     function bar()
     {
-        $this->log()->error('Error happened in bar!);
-        $this->log()->warning('Warning happened in bar!);
+        $this->logger()->error('Error happened in bar!);
+        $this->logger()->warning('Warning happened in bar!);
         // etc
     }
 }
