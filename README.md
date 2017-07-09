@@ -34,7 +34,7 @@ $foo->setLogger($anyPsr3LoggerHere);
 $foo->bar(); // There is a log record in $anyPsr3LoggerHere now.
 
 $foo->setEchoLogger();
-$foo->bar(); // 'ALERT: Something bad happened in bar' is echo'ed to a screen.
+$foo->bar(); // An error and a warning are echo'ed to a screen.
 
 // If you are using Monolog\Registry to store loggers, you can simply pass a logger name and the package will grab a logger from the Registry.
 $foo->setLogger('application_log');
